@@ -1,7 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-function Header (){
+function Header() {
+
     return (
         <header className="App-header">
             <nav>
@@ -12,7 +13,7 @@ function Header (){
                 </ul>
             </nav>
         </header>
-        )
+    )
 }
 
 export default Header

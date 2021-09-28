@@ -1,13 +1,10 @@
-function Login({loggedIn, onClick}) {
+function Login() {
 
 
     return (
         <div className="button-container">
             <button type="button"
-                    value={loggedIn}
-                    onClick={onClick}
-
-            >login
+            >Login
             </button>
         </div>
 
