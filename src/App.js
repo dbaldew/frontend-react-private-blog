@@ -12,20 +12,25 @@ function App() {
     // We houden in de state bij of iemand is "ingelogd" (simpele versie)
     const [isAuthenticated, toggleIsAuthenticated] = useState(false);
 
+    function handleClick() {
+        toggleIsAuthenticated(!isAuthenticated);
+        console.log(isAuthenticated);
+    }
+
     return (
 
         <Router>
             <div className="App">
-                <logo className="App-logo">
-                    logo
-                </logo>
                 <Header/>
                 <Switch>
                     <Route exact path="/">
                         <Home/>
                     </Route>
                     <Route path="/login">
-                        <Login/>
+                        <Login
+                            loggedIn={isAuthenticated}
+                            onClick={handleClick}
+                        />
                     </Route>
                     <Route exact path="/blogposts">
                         <Blogposts/>
