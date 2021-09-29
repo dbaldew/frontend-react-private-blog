@@ -10,7 +10,7 @@ function Blogposts() {
                 <p>Aantal posts:{posts.length}</p>
                 <ul>
                     {posts.map((post)=>{
-                        return <li>
+                        return <li key={post.id}>
                             <Link to={`blog/${post.id}`}>
                                <h2>{post.id}:  {post.title}</h2>
                             </Link>
