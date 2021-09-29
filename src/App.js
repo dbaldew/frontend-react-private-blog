@@ -4,7 +4,8 @@ import Login from "./Components/Pages/Login";
 import Home from "./Components/Pages/Home";
 import Blogposts from "./Components/Pages/Blogposts";
 import Header from "./Components/Header/Header";
-import {BrowserRouter as Router, Switch, Route,} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, useHistory} from "react-router-dom";
+import Blog from "./Components/Pages/blog";
 
 
 function App() {
@@ -12,20 +13,37 @@ function App() {
     const [isAuthenticated, toggleIsAuthenticated] = useState(false);
 
 
+    function login() {
+        toggleIsAuthenticated(true);
+        console.log(isAuthenticated)
+    }
+
+    function logout () {
+        toggleIsAuthenticated(false);
+        console.log(isAuthenticated)
+    }
+
 
     return (
         <Router>
             <div className="App">
-                <Header/>
+                <Header
+                    loggedIn={isAuthenticated}
+                />
                 <Switch>
                     <Route exact path="/">
                         <Home/>
                     </Route>
-                    <Route path="/blogposts">
+                    <Route exact path="/blogposts">
                         <Blogposts/>
                     </Route>
+                    <Route path="/blog/:id">
+                        <Blog/>
+                    </Route>
                     <Route path="/login">
-                        <Login/>
+                        <Login
+                            onClick={login}
+                        />
                     </Route>
                 </Switch>
             </div>
